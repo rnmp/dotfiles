@@ -3,7 +3,7 @@ HISTSIZE=10000
 SAVEHIST=1000
 setopt share_history
 setopt prompt_subst
-export PROMPT='%~%F{49}$(git_branch) %F{200}→ %F{15}\n'
+export PROMPT='%~%F{49}$(git_branch)'$'\n''%F{200}→ %F{15}'
 
 export WORDCHARS=''
 
