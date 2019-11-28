@@ -1,0 +1,27 @@
+extends javascript
+
+snippet < "Fragment <>" b
+<${1:ComponentOrTag}>
+  ${VISUAL:default}
+</${1:Compo}>
+endsnippet
+
+snippet import "React Functional Component" b
+import React from 'react'
+
+interface Props {
+
+}
+
+export default function
+${1:`!p snip.rv = snip.basename`} ({  }: Props) {
+  return (
+    ${2}
+  )
+}
+
+endsnippet
+
+snippet console "Create console.log from selection" b
+console.log("${1:${VISUAL:default}}", ${1:${VISUAL:default}})
+endsnippet

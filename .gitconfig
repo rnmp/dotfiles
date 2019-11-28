@@ -1,0 +1,28 @@
+[user]
+  name = Rolando Murillo
+  email = rolando@bandd.co
+
+[core]
+  editor = nvim
+
+[push]
+  default = current
+
+[pull]
+  default = current
+
+[alias]
+  rollback = reset -–hard HEAD@{1}
+  br = branch
+  ci = commit
+  co = checkout
+  df = diff
+  lg = log -p
+  rb = rebase
+  st = status
+
+[color]
+  branch = true
+  diff = true
+  interactive = true
+  status = true
