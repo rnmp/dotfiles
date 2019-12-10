@@ -1,4 +1,5 @@
 {
+  "python.jediEnabled": false,
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
   "tslint.autoFixOnSave": true,
   "snippets.extends": {

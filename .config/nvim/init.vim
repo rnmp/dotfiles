@@ -1,4 +1,5 @@
 command! Config execute ":e ~/.config/nvim/init.vim"
+command! ArrowToFn execute ":normal! ^ciwfunction/=dwndW"
 
 call plug#begin('~/.vim/plugged')
 
@@ -18,7 +19,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/nerdtree'
 
 " Syntax
-Plug 'vim-python/python-syntax'
+" Plug 'vim-python/python-syntax'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 
@@ -44,7 +45,6 @@ Plug 'SirVer/ultisnips'
 
 call plug#end()
 
-set iskeyword+=^_
 set inccommand=split
 
 " TODO
@@ -159,7 +159,8 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 
 let g:fzf_action = {
   \ 'right': 'tab split',
-  \ 'ctrl-j': 'vsplit' }
+  \ 'ctrl-j': 'vsplit',
+  \ 'ctrl-l': 'split'}
 
 " Typescript
 autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
@@ -181,3 +182,10 @@ syntax region tsxJsBlock
     \ keepend
     \ extend
     \ contains=TOP
+
+map <Space> <Leader>
+map <Tab> >>
+map <S-Tab> <<
+map! ;; <Esc>
+
+vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>

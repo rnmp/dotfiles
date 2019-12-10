@@ -3,7 +3,7 @@ HISTSIZE=10000
 SAVEHIST=1000
 setopt share_history
 setopt prompt_subst
-export PROMPT='%~%F{49}$(git_branch)'$'\n''%F{200}→ %F{15}'
+export PROMPT='%K{brblack}%~%F{green}$(git_branch)%K{brblack}%k'$'\n''%F{200}→ %F{15}'
 
 export WORDCHARS=''
 
@@ -47,6 +47,8 @@ export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
 export PKG_CONFIG_PATH="/usr/local/opt/openssl@1.1/lib/pkgconfig:$PKG_CONFIG_PATH"
 export PKG_CONFIG_PATH="/usr/local/opt/readline/lib/pkgconfig:$PKG_CONFIG_PATH"
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+
+# G I T
 
 # Manage dotfiles
 alias config='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'

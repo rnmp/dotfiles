@@ -1,11 +1,5 @@
 extends javascript
 
-snippet < "Fragment <>" b
-<${1:ComponentOrTag}>
-  ${VISUAL:default}
-</${1:Compo}>
-endsnippet
-
 snippet import "React Functional Component" b
 import React from 'react'
 
@@ -19,9 +13,8 @@ ${1:`!p snip.rv = snip.basename`} ({  }: Props) {
     ${2}
   )
 }
-
 endsnippet
 
 snippet console "Create console.log from selection" b
-console.log("${1:${VISUAL:default}}", ${1:${VISUAL:default}})
+console.log('${1:${VISUAL:default}}', ${1:${VISUAL:default}})
 endsnippet
