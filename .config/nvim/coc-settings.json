@@ -1,10 +1,13 @@
 {
   "python.jediEnabled": false,
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
+  "typescript.format.insertSpaceBeforeFunctionParenthesis": true,
+  "typescript.suggest.completeFunctionCalls": false,
   "tslint.autoFixOnSave": true,
   "snippets.extends": {
     "javascriptreact": ["javascript"],
     "typescript": ["javascript"],
     "typescriptreact": ["typescript"]
-  }
+  },
+  "solargraph.useBundler": true
 }

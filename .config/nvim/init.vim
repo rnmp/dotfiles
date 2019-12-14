@@ -15,13 +15,22 @@ Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 
+let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.erb,*.tsx"
+let g:closetag_xhtml_filenames = '*.xhtml,*.tsx,*.erb'
+
 " Navigation
 Plug 'scrooloose/nerdtree'
 
 " Syntax
 " Plug 'vim-python/python-syntax'
-Plug 'leafgarland/typescript-vim'
-Plug 'peitalin/vim-jsx-typescript'
+Plug 'yuezk/vim-js'
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'alvan/vim-closetag'
+Plug 'mattn/emmet-vim'
+" let g:user_emmet_leader_key='<C-;>'
+" Plug 'leafgarland/typescript-vim'
+" Plug 'peitalin/vim-jsx-typescript'
 
 " Git
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -129,6 +138,7 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+nmap <leader>qf  <Plug>(coc-fix-current)
 
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
@@ -166,15 +176,6 @@ let g:fzf_action = {
 autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
 let g:closetag_xhtml_filetypes = 'xhtml,javascript.jsx,jsx,typescript.tsx,tsx'
 
-hi tsxTagName guifg=#8be9fd
-hi xmlEndTag guifg=#8be9fd
-hi tsxOpenString guifg=#8be9fd
-hi tsxCloseString guifg=#8be9fd
-hi tsxTag guifg=#8be9fd
-hi htmlEndTag guifg=#8be9fd
-hi htmlTagName guifg=#8be9fd
-hi tsxAttrib guifg=#50fa7b
-
 syntax region tsxJsBlock
     \ matchgroup=tsxAttributeBraces start=+\([=]\|\s\)\@<={+
     \ matchgroup=tsxAttributeBraces end=+}\(\s*}\|)\)\@!+
@@ -189,3 +190,4 @@ map <S-Tab> <<
 map! ;; <Esc>
 
 vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
+let g:vim_jsx_pretty_colorful_config = 1
