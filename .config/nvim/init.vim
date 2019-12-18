@@ -115,6 +115,7 @@ autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 let g:coc_global_extensions = [
   \ 'coc-snippets',
   \ 'coc-pairs',
+  \ 'coc-emmet',
   \ 'coc-tsserver',
   \ 'coc-tslint-plugin',
   \ 'coc-python',

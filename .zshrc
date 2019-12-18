@@ -1,3 +1,34 @@
+export EDITOR='nvim'
+
+# vi mode
+bindkey -v
+
+# No delay for ESC key
+KEYTIMEOUT=1
+
+# Cursors a bit more consistent with nvim
+# https://archive.emily.st/2013/05/03/zsh-vi-cursor/
+function zle-keymap-select zle-line-init
+{
+    # change cursor shape in iTerm2
+    case $KEYMAP in
+        vicmd)      print -n -- "\E]50;CursorShape=0\C-G";;  # block cursor
+        viins|main) print -n -- "\E]50;CursorShape=1\C-G";;  # line cursor
+    esac
+
+    zle reset-prompt
+    zle -R
+}
+
+function zle-line-finish
+{
+    print -n -- "\E]50;CursorShape=0\C-G"  # block cursor
+}
+
+zle -N zle-line-init
+zle -N zle-line-finish
+zle -N zle-keymap-select
+
 # ZSH Settings
 HISTFILE=~/code/dotfiles/zsh/history.zsh
 HISTSIZE=10000
@@ -27,6 +58,7 @@ alias ..='cd ..'
 alias -- -='cd -'
 alias x='exit'
 alias vim='nvim'
+alias t='tmuxinator'
 
 function ide () {
   tmux split-window -v -p 30
@@ -44,38 +76,6 @@ export NVM_DIR="$HOME/.nvm"
 # GCloud
 if [ -f '/Users/rolando/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/rolando/google-cloud-sdk/path.zsh.inc'; fi
 if [ -f '/Users/rolando/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/rolando/google-cloud-sdk/completion.zsh.inc'; fi
-
-# vi mode
-bindkey -v
-
-# Respect reverse search binding
-bindkey '^r' history-incremental-search-backward
-
-# No delay for ESC key
-KEYTIMEOUT=1
-
-# Cursors a bit more consistent with nvim
-# https://archive.emily.st/2013/05/03/zsh-vi-cursor/
-function zle-keymap-select zle-line-init
-{
-    # change cursor shape in iTerm2
-    case $KEYMAP in
-        vicmd)      print -n -- "\E]50;CursorShape=0\C-G";;  # block cursor
-        viins|main) print -n -- "\E]50;CursorShape=1\C-G";;  # line cursor
-    esac
-
-    zle reset-prompt
-    zle -R
-}
-
-function zle-line-finish
-{
-    print -n -- "\E]50;CursorShape=0\C-G"  # block cursor
-}
-
-zle -N zle-line-init
-zle -N zle-line-finish
-zle -N zle-keymap-select
 
 # PATH
 export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
