@@ -15,6 +15,8 @@
   rollback = reset -–hard HEAD@{1}
   br = branch
   ci = commit
+  amen = commit --amend --no-edit
+  undo = reset --soft HEAD^
   co = checkout
   df = diff
   lg = log -p
@@ -27,3 +29,6 @@
   diff = true
   interactive = true
   status = true
+
+[rebase]
+  instructionFormat = "(%an <%ae>) %s"

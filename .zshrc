@@ -86,3 +86,6 @@ export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
 export PKG_CONFIG_PATH="/usr/local/opt/openssl@1.1/lib/pkgconfig:$PKG_CONFIG_PATH"
 export PKG_CONFIG_PATH="/usr/local/opt/readline/lib/pkgconfig:$PKG_CONFIG_PATH"
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+
+# Misc.
+alias airport_hell="openssl rand -hex 6 | sed 's/\(..\)/\1:/g; s/.$//' | xargs sudo ifconfig en0 ether"

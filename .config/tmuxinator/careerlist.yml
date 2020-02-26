@@ -4,15 +4,14 @@ root: ~/code/careerlist/
 windows:
   - sushi:
       root: ~/code/careerlist/sushi
-      layout: main-horizontal
+      layout: cae8,182x58,0,0[182x40,0,0,0,182x17,0,41{90x17,0,41,1,91x17,91,41,2}]
       panes:
         - vim
         -
         -
-  - careerlist-agent:
-      root: ~/code/careerlist/careerlist-agent
-      layout: main-horizontal
+  - extension:
+      root: ~/code/careerlist/sushi
+      layout: c925,196x54,0,0{98x54,0,0,20,97x54,99,0,21}
       panes:
-        - vim
         -
         -

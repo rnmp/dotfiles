@@ -14,23 +14,24 @@ Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 " Fuzzy Search
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
-
-let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.erb,*.tsx"
-let g:closetag_xhtml_filenames = '*.xhtml,*.tsx,*.erb'
+Plug 'jesseleite/vim-agriculture'
 
 " Navigation
 Plug 'scrooloose/nerdtree'
+Plug 'rbgrouleff/bclose.vim'
+Plug 'francoiscabrol/ranger.vim'
 
 " Syntax
-" Plug 'vim-python/python-syntax'
-Plug 'yuezk/vim-js'
 Plug 'HerringtonDarkholme/yats.vim'
-Plug 'maxmellon/vim-jsx-pretty'
-Plug 'alvan/vim-closetag'
-Plug 'mattn/emmet-vim'
-" let g:user_emmet_leader_key='<C-;>'
+" Plug 'yuezk/vim-js'
 " Plug 'leafgarland/typescript-vim'
-" Plug 'peitalin/vim-jsx-typescript'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'amadeus/vim-mjml'
+" Plug 'mattn/emmet-vim'
+
+Plug 'alvan/vim-closetag'
+let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.erb,*.tsx, *.mjml"
+let g:closetag_xhtml_filetypes = 'xhtml,javascript.jsx,jsx,typescript.tsx,tsx,typescriptreact,mjml'
 
 " Git
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -42,15 +43,28 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-abolish'
+
 Plug 'tpope/vim-repeat'
-Plug 'Yggdroot/indentLine'
+" Plug 'Yggdroot/indentLine'
 Plug 'machakann/vim-highlightedyank'
-Plug 'alvan/vim-closetag'
 Plug 'aaronbieber/vim-quicktask'
 " Plug 'tpope/vim-obsession'
 
 " Snippets
 Plug 'SirVer/ultisnips'
+
+" Text Objects "
+Plug 'tmhedberg/matchit'
+Plug 'kana/vim-textobj-user'
+Plug 'nelstrom/vim-textobj-rubyblock'
+Plug 'bps/vim-textobj-python'
+
+" Notational Velocity
+Plug 'alok/notational-fzf-vim'
+let g:nv_search_paths = ['~/notes']
+
+Plug 'tpope/vim-endwise'
 
 call plug#end()
 
@@ -114,9 +128,9 @@ autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 "
 let g:coc_global_extensions = [
   \ 'coc-snippets',
-  \ 'coc-pairs',
   \ 'coc-emmet',
   \ 'coc-tsserver',
+  \ 'coc-pairs',
   \ 'coc-tslint-plugin',
   \ 'coc-python',
   \ 'coc-solargraph',
@@ -125,6 +139,7 @@ let g:coc_global_extensions = [
 set hidden
 set updatetime=300
 set conceallevel=0
+set autoread
 
 vmap <C-l> <Plug>(coc-snippets-select)
 
@@ -136,6 +151,7 @@ nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 nmap <leader>rn <Plug>(coc-rename)
 nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gs :call CocActionAsync('jumpDefinition', 'vsp')<CR>
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
@@ -174,21 +190,27 @@ let g:fzf_action = {
   \ 'ctrl-l': 'split'}
 
 " Typescript
-autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
-let g:closetag_xhtml_filetypes = 'xhtml,javascript.jsx,jsx,typescript.tsx,tsx'
-
-syntax region tsxJsBlock
-    \ matchgroup=tsxAttributeBraces start=+\([=]\|\s\)\@<={+
-    \ matchgroup=tsxAttributeBraces end=+}\(\s*}\|)\)\@!+
-    \ contained
-    \ keepend
-    \ extend
-    \ contains=TOP
-
 map <Space> <Leader>
 map <Tab> >>
 map <S-Tab> <<
 map! ;; <Esc>
 
 vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
-let g:vim_jsx_pretty_colorful_config = 1
+nnoremap ? /\c
+map <C-J> :NERDTreeFind<CR>
+
+" Blockers: a bit more useful than TODO
+map <C-X> :RgRaw @(B<Bar>b)locker<CR>
+map <Leader>x :normal! o@blocker: <Esc>gcc$a
+
+map <Leader>conf :e ~/.config/nvim/init.vim<CR>
+map <Leader>st :Gstatus<CR>
+map <Leader>co :Gcommit<CR>
+map <C-P> :FZF<CR>
+map <A-Tab> :Buffers<CR>
+
+set splitbelow
+set splitright
+
+" map <C-w>L <C-w>:
+

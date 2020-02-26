@@ -18,3 +18,26 @@ endsnippet
 snippet console "Create console.log from selection" b
 console.log('${1:${VISUAL:default}}', ${1:${VISUAL:default}})
 endsnippet
+
+snippet jsblock:condition "Conditional content" b
+{
+  ${1} ? (
+  ${2:<></>}
+) : (
+  ${3:<></>}
+)}
+endsnippet
+
+snippet jsxblock:and "Conditional content" b
+{
+  ${1} && (
+  ${2:<></>}
+)}
+endsnippet
+
+snippet jsxblock:arrowfn "Conditional content" b
+{
+  ${1} => (
+  ${2:<></>}
+)}
+endsnippet

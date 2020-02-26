@@ -4,14 +4,14 @@ root: ~/code/sensive/
 windows:
   - main:
       root: ~/code/sensive/main
-      layout: main-horizontal
+      layout: cae8,182x58,0,0[182x40,0,0,0,182x17,0,41{90x17,0,41,1,91x17,91,41,2}]
       panes:
         - vim
         -
         -
   - sketch-plugin:
       root: ~/code/sensive/sketch-plugin
-      layout: main-horizontal
+      layout: cae8,182x58,0,0[182x40,0,0,0,182x17,0,41{90x17,0,41,1,91x17,91,41,2}]
       panes:
         - vim
         -
