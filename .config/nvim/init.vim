@@ -6,7 +6,6 @@ call plug#begin('~/.vim/plugged')
 " Theme
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'itchyny/lightline.vim'
-Plug 'edkolev/tmuxline.vim'
 
 " Autocompletion
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
@@ -207,6 +206,8 @@ map <Leader>conf :e ~/.config/nvim/init.vim<CR>
 map <Leader>st :Gstatus<CR>
 map <Leader>co :Gcommit<CR>
 map <C-P> :FZF<CR>
+map <C-Left> :cp<CR>
+map <C-Right> :cn<CR>
 map <A-Tab> :Buffers<CR>
 
 set splitbelow
