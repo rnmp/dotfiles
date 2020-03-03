@@ -16,6 +16,7 @@
   br = branch
   ci = commit
   amen = commit --amend --no-edit
+  wip = commit -m 'wip'
   undo = reset --soft HEAD^
   co = checkout
   df = diff
