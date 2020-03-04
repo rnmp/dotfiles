@@ -42,7 +42,7 @@ source ~/code/dotfiles/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 alias config='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 # Prompt
-export PROMPT='%K{brblack}%~%F{green}$(git_branch)%K{brblack}%k'$'\n''%F{200}→ %F{15}'
+export PROMPT='%K{brblack}%~%F{green}$(git_branch)%K{brblack}%k'$'\n''%F{200}> %F{15}'
 git_branch() {
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/@\1/'
 }
@@ -89,3 +89,10 @@ export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 
 # Misc.
 alias airport_hell="openssl rand -hex 6 | sed 's/\(..\)/\1:/g; s/.$//' | xargs sudo ifconfig en0 ether"
+
+# Dracula theme for FZF
+export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
+--color=dark
+--color=fg:-1,bg:-1,hl:#5fff87,fg+:-1,bg+:-1,hl+:#ffaf5f
+--color=info:#af87ff,prompt:#5fff87,pointer:#ff87d7,marker:#ff87d7,spinner:#ff87d7
+'
