@@ -1,7 +1,15 @@
+autocmd! FileType fzf set laststatus=0 noshowmode noruler
+  \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
 command! Config execute ":e ~/.config/nvim/init.vim"
 command! ArrowToFn execute ":normal! ^ciwfunction/=dwndW"
 
 call plug#begin('~/.vim/plugged')
+Plug 'christoomey/vim-tmux-navigator'
+nnoremap <silent> <c-7> :TmuxNavigateLeft<cr>
+nnoremap <silent> <c-8> :TmuxNavigateDown<cr>
+nnoremap <silent> <c-9> :TmuxNavigateUp<cr>
+nnoremap <silent> <c-0> :TmuxNavigateRight<cr>
+nnoremap <silent> <c-+> :TmuxNavigatePrevious<cr>
 
 " Theme
 Plug 'dracula/vim', { 'as': 'dracula' }
@@ -9,7 +17,6 @@ Plug 'itchyny/lightline.vim'
 
 " Autocompletion
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-
 " Fuzzy Search
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
@@ -203,15 +210,10 @@ map <C-X> :RgRaw @(B<Bar>b)locker<CR>
 map <Leader>x :normal! o@blocker: <Esc>gcc$a
 
 map <Leader>conf :e ~/.config/nvim/init.vim<CR>
-map <Leader>st :Gstatus<CR>
-map <Leader>co :Gcommit<CR>
-map <C-P> :FZF<CR>
 map <C-Left> :cp<CR>
 map <C-Right> :cn<CR>
 map <A-Tab> :Buffers<CR>
 
 set splitbelow
 set splitright
-
-" map <C-w>L <C-w>:
 
