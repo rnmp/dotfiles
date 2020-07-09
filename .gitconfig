@@ -23,7 +23,7 @@
   lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
   rb = rebase
   st = status
-  bd = branch --edit-description
+  desc = branch --edit-description
 
 [color]
   branch = true

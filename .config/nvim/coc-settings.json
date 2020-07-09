@@ -4,11 +4,11 @@
   "typescript.format.insertSpaceBeforeFunctionParenthesis": true,
   "typescript.suggest.completeFunctionCalls": false,
   "tslint.autoFixOnSave": true,
-  "snippets.priority": 100,
+  "snippets.priority": 1000,
   "snippets.extends": {
     "javascriptreact": ["javascript"],
     "typescript": ["javascript"],
-    "typescriptreact": ["typescript"],
+    "typescriptreact": ["javascriptreact"],
     "rails": ["ruby"]
   },
   "solargraph.useBundler": true
