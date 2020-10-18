@@ -40,6 +40,7 @@ git_branch() {
 export FZF_DEFAULT_COMMAND='ag -g ""'
 source /usr/local/opt/fzf/shell/completion.zsh
 source /usr/local/opt/fzf/shell/key-bindings.zsh
+source /usr/local/share/zsh/site-functions
 export FZF_TMUX=1
 
 # Aliases

@@ -155,10 +155,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'HerringtonDarkholme/yats.vim'
   Plug 'maxmellon/vim-jsx-pretty'
   Plug 'amadeus/vim-mjml'
-  Plug 'alvan/vim-closetag'
   Plug 'jparise/vim-graphql'
-  let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.erb,*.tsx, *.mjml"
-  let g:closetag_xhtml_filetypes = 'xhtml,javascript.jsx,jsx,typescript.tsx,tsx,typescriptreact,mjml'
 
   " Git
   Plug 'airblade/vim-gitgutter'
@@ -170,6 +167,11 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-rails'
   Plug 'tpope/vim-unimpaired'
   Plug 'tpope/vim-abolish'
+
+  Plug 'alvan/vim-closetag'
+  let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.erb,*.tsx, *.mjml"
+  let g:closetag_xhtml_filetypes = 'xhtml,javascript.jsx,jsx,typescript.tsx,tsx,typescriptreact,mjml'
+  let g:closetag_emptyTags_caseSensitive = 1
 
   Plug 'tpope/vim-repeat'
   Plug 'machakann/vim-highlightedyank'

@@ -11,5 +11,6 @@
     "typescriptreact": ["javascriptreact"],
     "rails": ["ruby"]
   },
+  "tailwindCSS.emmetCompletions": true,
   "solargraph.useBundler": true
 }
