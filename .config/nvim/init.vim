@@ -155,6 +155,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'HerringtonDarkholme/yats.vim'
   Plug 'maxmellon/vim-jsx-pretty'
   Plug 'amadeus/vim-mjml'
+  Plug 'keith/swift.vim'
   Plug 'jparise/vim-graphql'
 
   " Git
