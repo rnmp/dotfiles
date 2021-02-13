@@ -13,11 +13,6 @@ let g:closetag_xhtml_filetypes = 'xhtml,javascript.jsx,jsx,typescript.tsx,tsx,ty
 let g:closetag_emptyTags_caseSensitive = 1
 
 
-let g:UltiSnipsExpandTrigger="<c-l>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-
-
 let g:fzf_action = {
       \ 'right': 'tab split',
       \ 'ctrl-j': 'vsplit',

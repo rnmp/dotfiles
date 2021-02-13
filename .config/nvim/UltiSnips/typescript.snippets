@@ -1,43 +1,8 @@
 extends javascript
 
-snippet import "React Functional Component" b
-import React from 'react'
-
-interface Props {
-
-}
-
-export default function
-${1:`!p snip.rv = snip.basename`} ({  }: Props) {
-  return (
-    ${2}
-  )
+snippet interface "" b
+interface ${1} {
+  ${0}
 }
 endsnippet
 
-snippet console "Create console.log from selection" b
-console.log('${1:${VISUAL:default}}', ${1:${VISUAL:default}})
-endsnippet
-
-snippet jsblock:condition "Conditional content" b
-{
-  ${1} ? (
-  ${2:<></>}
-) : (
-  ${3:<></>}
-)}
-endsnippet
-
-snippet jsxblock:and "Conditional content" b
-{
-  ${1} && (
-  ${2:<></>}
-)}
-endsnippet
-
-snippet jsxblock:arrowfn "Conditional content" b
-{
-  ${1} => (
-  ${2:<></>}
-)}
-endsnippet
