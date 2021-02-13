@@ -1,0 +1,70 @@
+extends javascript
+
+global !p
+def split_onto_lines(snip, str):
+  for line in str.split(', '):
+    snip.rv += '\n  ' + snip.mkline(line) + ': string'
+  return snip.rv
+endglobal
+
+snippet export-with-props "component w/ props" b
+import React from 'react'
+
+interface Props {`!p snip.rv = split_onto_lines(snip, t[3])`${4}
+}
+
+export default function
+`!p snip.rv = snip.basename` ({ ${3:prop} }: Props) {
+  return (
+    ${0}
+  )
+}
+endsnippet
+
+snippet export "component w/o props" b
+import React from 'react'
+
+export default function
+`!p snip.rv = snip.basename` () {
+  return (
+    ${0}
+  )
+}
+endsnippet
+
+snippet bordp "Add a border pair" b
+" $1 {{{ ${2:`!p snip.rv = '-' * (int(snip.opt('&tw')) - len(t[1]))`}
+${0:${VISUAL:" Content }}
+" $1 }}} $2
+endsnippet
+
+snippet init "problems with python" b
+`!p snip.rv = 'something'`
+endsnippet
+
+snippet console "Create console.log from selection" b
+console.log('${1:${VISUAL:default}}', ${1:${VISUAL:default}})
+endsnippet
+
+snippet {jsxblock:condition "Conditional content" b
+{
+  ${1} ? (
+  ${2:<></>}
+) : (
+  ${3:<></>}
+)}
+endsnippet
+
+snippet {jsxblock:and "Conditional content" b
+{
+  ${1} && (
+  ${2:<></>}
+)}
+endsnippet
+
+snippet {jsxblock:arrowfn "Conditional content" b
+{
+  ${1} => (
+  ${2:<></>}
+)}
+endsnippet
