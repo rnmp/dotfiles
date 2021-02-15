@@ -4,6 +4,7 @@ alias -- -='cd -'
 alias x='exit'
 alias vim='nvim'
 alias t='tmuxinator'
+alias p='t start project'
 alias k='killall -9'
 
 # Manage dotfiles
