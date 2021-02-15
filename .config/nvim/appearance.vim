@@ -1,6 +1,6 @@
 syntax on
 set termguicolors
-colorscheme dracula
-" @blocker: look into ctermbg
+colorscheme nord
 highlight Normal ctermbg=NONE guibg=NONE
+highlight CocMenuSel ctermbg=NONE guifg=#000000
 

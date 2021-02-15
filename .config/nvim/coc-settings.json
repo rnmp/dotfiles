@@ -3,7 +3,6 @@
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
   "typescript.format.insertSpaceBeforeFunctionParenthesis": true,
   "typescript.suggest.completeFunctionCalls": false,
-  "tslint.autoFixOnSave": true,
   "snippets.priority": 1000,
   "snippets.extends": {
     "javascriptreact": ["javascript"],
@@ -11,6 +10,5 @@
     "typescriptreact": ["javascriptreact"],
     "rails": ["ruby"]
   },
-  "tailwindCSS.emmetCompletions": true,
-  "solargraph.useBundler": true
+  "tslint.enable": false
 }

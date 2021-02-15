@@ -1,18 +1,85 @@
-let g:python_host_prog = '/usr/local/bin/python2'
-let g:python3_host_prog = '/usr/local/bin/python3'
+call plug#begin('~/.vim/plugged')
 
+  " UI
+  Plug 'scrooloose/nerdtree'
+  Plug 'itchyny/lightline.vim'
 
+  " Theme
+  Plug 'arcticicestudio/nord-vim'
+
+  " Fuzzy Search
+  Plug '/usr/local/opt/fzf'
+  Plug 'junegunn/fzf.vim'
+  Plug 'jesseleite/vim-agriculture' " :RgRaw
+
+  " Syntax
+  Plug 'HerringtonDarkholme/yats.vim'
+  Plug 'maxmellon/vim-jsx-pretty'
+  Plug 'amadeus/vim-mjml'
+
+  " Git
+  Plug 'airblade/vim-gitgutter'
+  Plug 'tpope/vim-fugitive'
+  Plug 'Xuyuanp/nerdtree-git-plugin'
+
+  " Misc.
+  Plug 'tpope/vim-commentary'
+  Plug 'tpope/vim-surround'
+  Plug 'tpope/vim-rails'
+  Plug 'tpope/vim-unimpaired'
+  Plug 'tpope/vim-abolish'
+  Plug 'tpope/vim-repeat'
+  Plug 'tpope/vim-endwise'
+
+  Plug 'alvan/vim-closetag'
+  Plug 'machakann/vim-highlightedyank'
+  Plug 'rbgrouleff/bclose.vim'
+  Plug 'christoomey/vim-tmux-navigator'
+
+  " Snippets
+  Plug 'SirVer/ultisnips'
+
+  " Text Objects
+  Plug 'tmhedberg/matchit'
+  Plug 'kana/vim-textobj-user'
+  Plug 'nelstrom/vim-textobj-rubyblock'
+  Plug 'bps/vim-textobj-python'
+
+  " Completion
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+call plug#end()
+
+" tmux_navigator.vim
 let g:tmux_navigator_no_mappings = 1
 
-
+" bclose.vim
 let g:bclose_no_plugin_maps = 1
 
-
+" closetag.vim
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.erb,*.tsx, *.mjml"
 let g:closetag_xhtml_filetypes = 'xhtml,javascript.jsx,jsx,typescript.tsx,tsx,typescriptreact,mjml'
 let g:closetag_emptyTags_caseSensitive = 1
 
+" NERD_tree.vim
+let g:NERDTreeMinimalUI = 1
+let g:NERDTreeStatusline = ' '
+let g:NERDTreeWinPos = "right"
+let NERDTreeIgnore=['\node_modules$']
+let g:NERDTreeGitStatusIndicatorMapCustom = {
+      \ "Modified"  : "~",
+      \ "Staged"    : "✚",
+      \ "Untracked" : "✭",
+      \ "Renamed"   : "➜",
+      \ "Unmerged"  : "═",
+      \ "Deleted"   : "✖",
+      \ "Dirty"     : "✗",
+      \ "Clean"     : "✔︎",
+      \ 'Ignored'   : '☒',
+      \ "Unknown"   : "?"
+      \ }
 
+" fzf.vim
 let g:fzf_action = {
       \ 'right': 'tab split',
       \ 'ctrl-j': 'vsplit',
@@ -32,91 +99,20 @@ function! FloatingFZF()
   call setwinvar(win, '&winhighlight', 'NormalFloat:TabLine')
 endfunction
 
-
+" lightline.vim
 let g:lightline = {
-      \ 'colorscheme': 'dracula',
+      \ 'colorscheme': 'nord',
       \ 'separator': { 'left': '', 'right': '' },
       \ 'inactive': {
-      \   'left': [[ 'readonly', 'relativepath', 'modified' ]]
+      \   'left': [['readonly', 'relativepath', 'modified']],
+      \   'right': [['percent'], ['lineinfo']]
       \ },
       \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ], [ 'readonly', 'relativepath', 'modified' ] ]
+      \   'left': [['mode', 'paste'], ['readonly', 'relativepath', 'modified']],
+      \   'right': [['percent'], ['lineinfo'], ['filetype']]
       \ },
       \ 'subseparator': { 'left': '', 'right': '' }
       \ }
 
-
-let g:NERDTreeMinimalUI = 1
-let g:NERDTreeStatusline = ' '
-let g:NERDTreeWinPos = "right"
-let NERDTreeIgnore=['\node_modules$']
-let g:NERDTreeGitStatusIndicatorMapCustom = {
-      \ "Modified"  : "✹",
-      \ "Staged"    : "✚",
-      \ "Untracked" : "✭",
-      \ "Renamed"   : "➜",
-      \ "Unmerged"  : "═",
-      \ "Deleted"   : "✖",
-      \ "Dirty"     : "✗",
-      \ "Clean"     : "✔︎",
-      \ 'Ignored'   : '☒',
-      \ "Unknown"   : "?"
-      \ }
-
-
+" coc.vim
 let g:coc_global_extensions = ['coc-tsserver', 'coc-eslint', 'coc-prettier']
-
-
-call plug#begin('~/.vim/plugged')
-  Plug 'christoomey/vim-tmux-navigator'
-
-  " Theme
-  Plug 'dracula/vim', { 'as': 'dracula' }
-  Plug 'itchyny/lightline.vim'
-
-  " Fuzzy Search
-  Plug '/usr/local/opt/fzf'
-  Plug 'junegunn/fzf.vim'
-  Plug 'jesseleite/vim-agriculture' " :RgRaw
-
-  " Sidebar
-  Plug 'scrooloose/nerdtree'
-  Plug 'Xuyuanp/nerdtree-git-plugin'
-
-  Plug 'rbgrouleff/bclose.vim'
-
-  " Syntax
-  Plug 'HerringtonDarkholme/yats.vim'
-  Plug 'maxmellon/vim-jsx-pretty'
-  Plug 'amadeus/vim-mjml'
-
-  " Git
-  Plug 'airblade/vim-gitgutter'
-  Plug 'tpope/vim-fugitive'
-
-  " Misc.
-  Plug 'tpope/vim-commentary'
-  Plug 'tpope/vim-surround'
-  Plug 'tpope/vim-rails'
-  Plug 'tpope/vim-unimpaired'
-  Plug 'tpope/vim-abolish'
-
-  Plug 'alvan/vim-closetag'
-
-  Plug 'tpope/vim-repeat'
-  Plug 'machakann/vim-highlightedyank'
-
-  " Snippets
-  Plug 'SirVer/ultisnips'
-
-  " Text Objects
-  Plug 'tmhedberg/matchit'
-  Plug 'kana/vim-textobj-user'
-  Plug 'nelstrom/vim-textobj-rubyblock'
-  Plug 'bps/vim-textobj-python'
-
-  Plug 'tpope/vim-endwise'
-
-  Plug 'neoclide/coc.nvim', {'branch': 'release'}
-call plug#end()
-
