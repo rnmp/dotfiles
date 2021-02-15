@@ -1,4 +1,4 @@
-<% @location = File.expand_path(@args[0], Dir.getwd) %>
+<% @location = File.expand_path(@args[0]) %>
 <% @name = @location.sub("#{ENV['HOME']}/", '').sub(/^code\//, '') %>
 name: <%= @name %>
 windows:
