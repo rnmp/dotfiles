@@ -4,8 +4,8 @@ name: <%= @name %>
 windows:
   - <%= @name %>:
       root: <%= @location %>
-      layout: cae8,182x58,0,0[182x40,0,0,0,182x17,0,41{90x17,0,41,1,91x17,91,41,2}]
+      layout: main-horizontal
       panes:
-        - clear && vim
+        - vim
         - clear
         - clear
