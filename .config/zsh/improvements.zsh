@@ -1,3 +1,5 @@
+setopt completealiases
+
 # Use c-z to both bg and fg a process
 function Resume {
     fg

@@ -1,4 +1,3 @@
-# Aliases
 alias ..='cd ..'
 alias -- -='cd -'
 alias x='exit'
