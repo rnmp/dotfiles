@@ -9,6 +9,14 @@ if bufwinnr(1)
   map _ 10<C-W><
 endif
 
+" Closing shortcuts
+map <silent><C-q>w :q<CR>
+map <silent><C-q>q :qall<CR>
+map <silent><C-q>fq :qall!<CR>
+
+" Clear search highlight
+map <silent><C-l> :noh<CR>
+
 " Search current selection
 vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
 
