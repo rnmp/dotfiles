@@ -1,26 +1,41 @@
 call plug#begin('~/.vim/plugged')
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'nvim-telescope/telescope.nvim'
 
   " UI
   Plug 'scrooloose/nerdtree'
   Plug 'itchyny/lightline.vim'
 
   " Theme
-  Plug 'arcticicestudio/nord-vim'
+  Plug 'chrisbra/Colorizer'
+  Plug 'cocopon/inspecthi.vim'
+  Plug 'rnmp/nord-vim'
 
   " Fuzzy Search
   Plug '/usr/local/opt/fzf'
   Plug 'junegunn/fzf.vim'
   Plug 'jesseleite/vim-agriculture' " :RgRaw
+  Plug 'eugen0329/vim-esearch'
 
   " Syntax
   Plug 'HerringtonDarkholme/yats.vim'
   Plug 'maxmellon/vim-jsx-pretty'
   Plug 'amadeus/vim-mjml'
+  Plug 'OmniSharp/omnisharp-vim'
+  Plug 'OrangeT/vim-csharp'
+  Plug 'keith/swift.vim'
+  Plug 'elixir-editors/vim-elixir'
+
+  " Writing
+  Plug 'Delayless/bullets.vim' " this is a fork
+  Plug 'junegunn/goyo.vim'
 
   " Git
   Plug 'airblade/vim-gitgutter'
   Plug 'tpope/vim-fugitive'
-  Plug 'Xuyuanp/nerdtree-git-plugin'
+  Plug 'inkarkat/vim-ingo-library' " Dependency for CountJump
+  Plug 'inkarkat/vim-CountJump' " Dependency for ConflictMotions
+  Plug 'inkarkat/vim-ConflictMotions'
 
   " Misc.
   Plug 'tpope/vim-commentary'
@@ -42,13 +57,38 @@ call plug#begin('~/.vim/plugged')
   " Text Objects
   Plug 'tmhedberg/matchit'
   Plug 'kana/vim-textobj-user'
+  Plug 'kana/vim-textobj-function'
   Plug 'nelstrom/vim-textobj-rubyblock'
   Plug 'bps/vim-textobj-python'
+  Plug 'haya14busa/vim-textobj-function-syntax'
 
   " Completion
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'pechorin/any-jump.vim'
 
+  " Notes
+  Plug 'alok/notational-fzf-vim'
+  Plug 'ferrine/md-img-paste.vim'
 call plug#end()
+
+" lightline.vim
+let g:lightline = {
+      \ 'colorscheme': 'nord',
+      \ 'separator': { 'left': '', 'right': '' },
+      \ 'inactive': {
+      \   'left': [['readonly', 'relativepath', 'modified']],
+      \   'right': [['percent'], ['lineinfo']]
+      \ },
+      \ 'active': {
+      \   'left': [['mode', 'paste'], ['readonly', 'relativepath', 'modified']],
+      \   'right': [['percent'], ['lineinfo'], ['filetype']]
+      \ },
+      \ 'subseparator': { 'left': '', 'right': '' }
+      \ }
+
+" NERD_tree.vim
+let g:NERDTreeMinimalUI = 1
+let g:NERDTreeStatusline = ' '
 
 " tmux_navigator.vim
 let g:tmux_navigator_no_mappings = 1
@@ -60,24 +100,6 @@ let g:bclose_no_plugin_maps = 1
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.erb,*.tsx, *.mjml"
 let g:closetag_xhtml_filetypes = 'xhtml,javascript.jsx,jsx,typescript.tsx,tsx,typescriptreact,mjml'
 let g:closetag_emptyTags_caseSensitive = 1
-
-" NERD_tree.vim
-let g:NERDTreeMinimalUI = 1
-let g:NERDTreeStatusline = ' '
-let g:NERDTreeWinPos = "right"
-let NERDTreeIgnore=['\node_modules$']
-let g:NERDTreeGitStatusIndicatorMapCustom = {
-      \ "Modified"  : "~",
-      \ "Staged"    : "✚",
-      \ "Untracked" : "✭",
-      \ "Renamed"   : "➜",
-      \ "Unmerged"  : "═",
-      \ "Deleted"   : "✖",
-      \ "Dirty"     : "✗",
-      \ "Clean"     : "✔︎",
-      \ 'Ignored'   : '☒',
-      \ "Unknown"   : "?"
-      \ }
 
 " fzf.vim
 let g:fzf_action = {
@@ -99,20 +121,21 @@ function! FloatingFZF()
   call setwinvar(win, '&winhighlight', 'NormalFloat:TabLine')
 endfunction
 
-" lightline.vim
-let g:lightline = {
-      \ 'colorscheme': 'nord',
-      \ 'separator': { 'left': '', 'right': '' },
-      \ 'inactive': {
-      \   'left': [['readonly', 'relativepath', 'modified']],
-      \   'right': [['percent'], ['lineinfo']]
-      \ },
-      \ 'active': {
-      \   'left': [['mode', 'paste'], ['readonly', 'relativepath', 'modified']],
-      \   'right': [['percent'], ['lineinfo'], ['filetype']]
-      \ },
-      \ 'subseparator': { 'left': '', 'right': '' }
-      \ }
-
 " coc.vim
-let g:coc_global_extensions = ['coc-tsserver', 'coc-eslint', 'coc-prettier']
+let g:coc_global_extensions = ['coc-tsserver', 'coc-eslint', 'coc-prettier', 'coc-omnisharp', 'coc-go', 'coc-sourcekit']
+
+" netrw.vim
+let g:netrw_banner = 0
+
+" Notes
+let g:nv_search_paths = ['~/notes']
+let g:nv_window_command = 'call FloatingFZF()'
+
+" Markdown
+let g:markdown_fenced_languages = ['typescript', 'typescriptreact', 'ruby']
+let g:mdip_imgdir = 'img'
+let g:mdip_imgname = 'image'
+
+" CSharpp
+" Thanks https://chrislabarge.com/posts/neovim-unity-engine/
+let g:OmniSharp_server_use_mono = 1

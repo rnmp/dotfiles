@@ -1,7 +1,6 @@
 set inccommand=split
 
 set number
-set relativenumber
 filetype plugin indent on
 set autoindent
 set ignorecase smartcase
@@ -20,10 +19,9 @@ set autoread
 au FocusGained,BufEnter,CursorHold,CursorHoldI *
         \ if mode() !~ '\v(c|r.?|!|t)' && getcmdwintype() == '' | checktime | endif
 
+set textwidth=79
+
 set splitbelow
-set splitright
 
 set clipboard+=unnamedplus
 set mouse=vnicr
-
-set noshowmode

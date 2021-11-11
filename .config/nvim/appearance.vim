@@ -1,6 +1,11 @@
 syntax on
+syntax reset
 set termguicolors
-colorscheme nord
-highlight Normal ctermbg=NONE guibg=NONE
-highlight CocMenuSel ctermbg=NONE guifg=#000000
+set noshowmode
+set noshowcmd
+" set nohlsearch
+hi clear
 
+" colorscheme inspired
+colorscheme nord
+let g:nord_uniform_status_lines=0

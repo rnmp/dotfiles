@@ -5,6 +5,7 @@ alias vim='nvim'
 alias t='tmuxinator'
 alias p='t start project'
 alias k='killall -9'
+alias icat="kitty +kitten icat"
 
 # Manage dotfiles
 alias config='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'

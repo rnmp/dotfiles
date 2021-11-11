@@ -1,7 +1,15 @@
 map <space> <leader>
 
 " Open conf easily
-map <Leader>conf :e ~/.config/nvim/init.vim<CR>
+map <silent><Leader>conf :e ~/.config/nvim/init.vim<CR>
+map <silent><Leader>cp :e ~/.config/nvim/plugins.vim<CR>
+map <silent><Leader>ca :e ~/.config/nvim/appearance.vim<CR>
+map <silent><Leader>cm :e ~/.config/nvim/mappings.vim<CR>
+map <silent><Leader>ct :e ~/.tmux.conf<CR>
+map <silent><Leader>cf :e ~/.config/zsh/fzf.zsh<CR>
+
+" Writing
+map <silent><Leader>ww :Goyo<bar> highlight StatusLineNC ctermfg=100 <bar> highlight EndOfBuffer ctermfg=100<CR>
 
 " Split resizing
 if bufwinnr(1)
@@ -28,7 +36,7 @@ map <silent><C-]> :cn<CR>
 map <silent><C-[> :cp<CR>
 
 " Shortcuts for @blockers
-nmap <silent> <C-X> :RgRaw @(B<Bar>b)locker<CR>
+nmap <silent> <C-X> :Telescope live_grep @blocker<CR>
 nmap <silent> <Leader>x :normal! o@blocker: <Esc>gcc$a
 
 " tmux_navigator.vim
@@ -39,26 +47,34 @@ nnoremap <silent> <c-0> :TmuxNavigateRight<cr>
 nnoremap <silent> <c-+> :TmuxNavigatePrevious<cr>
 
 " NERD_tree.vim
-map <silent> <c-j> :NERDTreeFind<CR>
-map <silent> <c-h> :NERDTreeToggle<CR>
+map <silent> <c-j> :vs %:h<CR>
 
 " bclose.vim
 nmap <silent> <C-b> :Bclose<CR>
 imap <silent> <C-b> <Esc>:Bclose<CR>
 
+" notational_fzf.vim
+let g:nv_keymap = {
+      \ 'ctrl-s': 'split ',
+      \ 'ctrl-j': 'vertical split ',
+      \ 'ctrl-t': 'tabedit ',
+      \ }
+
 " fzf.vim
-nmap <silent> <C-f> :Rg<CR>
-imap <silent> <C-f> <Esc>:Rg<CR>
-nmap <silent> <C-p> :FZF<CR>
-imap <silent> <C-p> <Esc>:FZF<CR>
-nmap <silent> <A-Tab> :Buffers<CR>
-imap <silent> <A-Tab> <Esc>:Buffers<CR>
+nmap <silent> <A-Tab> :Telescope buffers<CR>
+imap <silent> <A-Tab> <Esc>:Telescope buffers<CR>
 
 " fugitive.vim
 nmap <silent> <C-s> :Gstatus<CR>
 imap <silent> <C-s> <Esc>:Gstatus<CR>
 nmap <silent> <C-g> :Git ci<CR>
 imap <silent> <C-g> <Esc>:Git ci<CR>
+
+" notational-velocity
+nmap <silent> <C-n> :NV<CR>
+
+" Copy clipboard image
+autocmd FileType markdown nmap <buffer><silent> <leader>p :call mdip#MarkdownClipboardImage()<CR><CR>
 
 " coc.vim
 "
@@ -92,3 +108,5 @@ function! s:show_documentation()
     execute '!' . &keywordprg . " " . expand('<cword>')
   endif
 endfunction
+
+unmap <Esc>

@@ -8,7 +8,18 @@
     "javascriptreact": ["javascript"],
     "typescript": ["javascript"],
     "typescriptreact": ["javascriptreact"],
-    "rails": ["ruby"]
+    "rails": ["ruby"],
+    "markdown": ["markdown"]
   },
-  "tslint.enable": false
+  "tslint.enable": false,
+  "coc.preferences.formatOnSaveFiletypes": ["markdown"],
+  "omnisharp.version": "v1.37.3",
+  "omnisharp.trace.server": "information",
+  "omnisharp.debug.server": true,
+  "coc.source.OmniSharp.enable" : true,
+  "coc.source.OmniSharp.triggerCharacters": [
+    "."
+  ],
+  "sourcekit.commandPath": "/usr/bin/sourcekit-lsp",
+  "sourcekit.sdk": "SwiftUI"
 }
