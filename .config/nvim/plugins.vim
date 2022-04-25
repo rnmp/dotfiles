@@ -21,8 +21,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'HerringtonDarkholme/yats.vim'
   Plug 'maxmellon/vim-jsx-pretty'
   Plug 'amadeus/vim-mjml'
-  Plug 'OmniSharp/omnisharp-vim'
-  Plug 'OrangeT/vim-csharp'
   Plug 'keith/swift.vim'
   Plug 'elixir-editors/vim-elixir'
 
@@ -51,9 +49,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'rbgrouleff/bclose.vim'
   Plug 'christoomey/vim-tmux-navigator'
 
-  " Snippets
-  Plug 'SirVer/ultisnips'
-
   " Text Objects
   Plug 'tmhedberg/matchit'
   Plug 'kana/vim-textobj-user'
@@ -67,7 +62,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'pechorin/any-jump.vim'
 
   " Notes
-  Plug 'alok/notational-fzf-vim'
   Plug 'ferrine/md-img-paste.vim'
 call plug#end()
 
@@ -122,20 +116,10 @@ function! FloatingFZF()
 endfunction
 
 " coc.vim
-let g:coc_global_extensions = ['coc-tsserver', 'coc-eslint', 'coc-prettier', 'coc-omnisharp', 'coc-go', 'coc-sourcekit']
+let g:coc_global_extensions = ['coc-tsserver', 'coc-eslint', 'coc-prettier', 'coc-go', 'coc-sourcekit']
 
 " netrw.vim
 let g:netrw_banner = 0
 
-" Notes
-let g:nv_search_paths = ['~/notes']
-let g:nv_window_command = 'call FloatingFZF()'
-
 " Markdown
 let g:markdown_fenced_languages = ['typescript', 'typescriptreact', 'ruby']
-let g:mdip_imgdir = 'img'
-let g:mdip_imgname = 'image'
-
-" CSharpp
-" Thanks https://chrislabarge.com/posts/neovim-unity-engine/
-let g:OmniSharp_server_use_mono = 1
