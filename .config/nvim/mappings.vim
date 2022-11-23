@@ -87,6 +87,8 @@ nmap <silent> ]g <Plug>(coc-diagnostic-next)
 nmap <leader>ac  <Plug>(coc-codeaction)
 nmap <leader>qf  <Plug>(coc-fix-current)
 nmap <leader>rn  <Plug>(coc-rename)
+inoremap <silent><expr> <cr> coc#pum#visible() && coc#pum#info()['index'] != -1 ? coc#pum#confirm() :
+        \ "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 "
 " Easy restart
 command! CR execute ":CocRestart"
@@ -109,4 +111,4 @@ function! s:show_documentation()
   endif
 endfunction
 
-unmap <Esc>
+" unmap <Esc>

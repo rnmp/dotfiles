@@ -6,10 +6,18 @@ call plug#begin('~/.vim/plugged')
   Plug 'scrooloose/nerdtree'
   Plug 'itchyny/lightline.vim'
 
+  Plug 'neovim/nvim-lspconfig'
+  Plug 'xbase-lab/xbase', { 'do': 'make install' }
+
   " Theme
   Plug 'chrisbra/Colorizer'
   Plug 'cocopon/inspecthi.vim'
   Plug 'rnmp/nord-vim'
+
+  " Formatting
+  Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install --frozen-lockfile --production',
+  \ 'for': ['javascript', 'typescript'] }
 
   " Fuzzy Search
   Plug '/usr/local/opt/fzf'
@@ -46,7 +54,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-endwise'
 
-  Plug 'alvan/vim-closetag'
   Plug 'machakann/vim-highlightedyank'
   Plug 'rbgrouleff/bclose.vim'
   Plug 'christoomey/vim-tmux-navigator'
@@ -96,11 +103,6 @@ let g:tmux_navigator_no_mappings = 1
 " bclose.vim
 let g:bclose_no_plugin_maps = 1
 
-" closetag.vim
-let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.erb,*.tsx, *.mjml"
-let g:closetag_xhtml_filetypes = 'xhtml,javascript.jsx,jsx,typescript.tsx,tsx,typescriptreact,mjml'
-let g:closetag_emptyTags_caseSensitive = 1
-
 " fzf.vim
 let g:fzf_action = {
       \ 'right': 'tab split',
@@ -122,7 +124,7 @@ function! FloatingFZF()
 endfunction
 
 " coc.vim
-let g:coc_global_extensions = ['coc-tsserver', 'coc-eslint', 'coc-prettier', 'coc-omnisharp', 'coc-go', 'coc-sourcekit']
+let g:coc_global_extensions = ['coc-tsserver', 'coc-eslint', 'coc-prettier']
 
 " netrw.vim
 let g:netrw_banner = 0
@@ -135,6 +137,9 @@ let g:nv_window_command = 'call FloatingFZF()'
 let g:markdown_fenced_languages = ['typescript', 'typescriptreact', 'ruby']
 let g:mdip_imgdir = 'img'
 let g:mdip_imgname = 'image'
+
+" Prettier
+let g:prettier#autoformat = 1
 
 " CSharpp
 " Thanks https://chrislabarge.com/posts/neovim-unity-engine/

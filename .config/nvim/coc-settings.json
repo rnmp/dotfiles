@@ -11,15 +11,17 @@
     "rails": ["ruby"],
     "markdown": ["markdown"]
   },
+  "languageservers": {
+
+  },
   "tslint.enable": false,
-  "coc.preferences.formatOnSaveFiletypes": ["markdown"],
+  "coc.preferences.formatOnSaveFiletypes": ["markdown", "typescriptreact"],
   "omnisharp.version": "v1.37.3",
   "omnisharp.trace.server": "information",
   "omnisharp.debug.server": true,
-  "coc.source.OmniSharp.enable" : true,
-  "coc.source.OmniSharp.triggerCharacters": [
-    "."
-  ],
-  "sourcekit.commandPath": "/usr/bin/sourcekit-lsp",
-  "sourcekit.sdk": "SwiftUI"
+  "coc.source.OmniSharp.enable": true,
+  "coc.source.OmniSharp.triggerCharacters": ["."],
+  "sourcekit.commandPath": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp",
+  "eslint.enable": true,
+  "eslint.nodePath": "/Users/rolando/.config/yarn/global/node_modules/.bin/eslint"
 }
