@@ -53,13 +53,6 @@ map <silent> <c-j> :vs %:h<CR>
 nmap <silent> <C-b> :Bclose<CR>
 imap <silent> <C-b> <Esc>:Bclose<CR>
 
-" notational_fzf.vim
-let g:nv_keymap = {
-      \ 'ctrl-s': 'split ',
-      \ 'ctrl-j': 'vertical split ',
-      \ 'ctrl-t': 'tabedit ',
-      \ }
-
 " fzf.vim
 nmap <silent> <A-Tab> :Telescope buffers<CR>
 imap <silent> <A-Tab> <Esc>:Telescope buffers<CR>
@@ -69,12 +62,6 @@ nmap <silent> <C-s> :Gstatus<CR>
 imap <silent> <C-s> <Esc>:Gstatus<CR>
 nmap <silent> <C-g> :Git ci<CR>
 imap <silent> <C-g> <Esc>:Git ci<CR>
-
-" notational-velocity
-nmap <silent> <C-n> :NV<CR>
-
-" Copy clipboard image
-autocmd FileType markdown nmap <buffer><silent> <leader>p :call mdip#MarkdownClipboardImage()<CR><CR>
 
 " coc.vim
 "
