@@ -7,3 +7,5 @@ ehthumbs.db
 Thumbs.db
 
 .dotfiles
+.config/coc/*
+.config/github-copilot/*
