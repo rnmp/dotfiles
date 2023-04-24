@@ -1,0 +1,20 @@
+vim.cmd("set inccommand=split")
+vim.cmd("set number")
+vim.cmd("filetype plugin indent on")
+vim.cmd("set autoindent")
+vim.cmd("set ignorecase smartcase")
+vim.cmd("set noswapfile")
+vim.cmd("set undofile")
+vim.cmd("set expandtab")
+vim.cmd("set shiftwidth=2")
+vim.cmd("set softtabstop=2")
+vim.cmd("set hidden")
+vim.cmd("set updatetime=300")
+vim.cmd("set conceallevel=0")
+
+vim.cmd("set textwidth=79")
+
+vim.cmd("set splitbelow")
+
+vim.cmd("set clipboard+=unnamedplus")
+vim.cmd("set mouse=vnicr")

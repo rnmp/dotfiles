@@ -675,30 +675,30 @@
                     "manipulate_caps_lock_led": true,
                     "simple_modifications": [
                         {
-                            "from":
-                            {
+                            "from": {
                                 "pointing_button": "button4"
                             },
-                            "to":
-                            {
-                                "key_code": "open_bracket",
-                                "modifiers": [
-                                    "left_command"
-                                ]
-                            }
+                            "to": [
+                                {
+                                    "key_code": "open_bracket",
+                                    "modifiers": [
+                                        "left_command"
+                                    ]
+                                }
+                            ]
                         },
                         {
-                            "from":
-                            {
+                            "from": {
                                 "pointing_button": "button5"
                             },
-                            "to":
-                            {
-                                "key_code": "close_bracket",
-                                "modifiers": [
-                                    "left_command"
-                                ]
-                            }
+                            "to": [
+                                {
+                                    "key_code": "close_bracket",
+                                    "modifiers": [
+                                        "left_command"
+                                    ]
+                                }
+                            ]
                         }
                     ],
                     "treat_as_built_in_keyboard": false
@@ -1200,6 +1200,45 @@
                         "is_pointing_device": true,
                         "product_id": 50504,
                         "vendor_id": 1133
+                    },
+                    "ignore": true,
+                    "manipulate_caps_lock_led": false,
+                    "simple_modifications": [],
+                    "treat_as_built_in_keyboard": false
+                },
+                {
+                    "disable_built_in_keyboard_if_exists": false,
+                    "fn_function_keys": [],
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "is_pointing_device": false,
+                        "product_id": 834,
+                        "vendor_id": 1452
+                    },
+                    "ignore": false,
+                    "manipulate_caps_lock_led": true,
+                    "simple_modifications": [
+                        {
+                            "from": {
+                                "key_code": "right_command"
+                            },
+                            "to": [
+                                {
+                                    "key_code": "right_control"
+                                }
+                            ]
+                        }
+                    ],
+                    "treat_as_built_in_keyboard": false
+                },
+                {
+                    "disable_built_in_keyboard_if_exists": false,
+                    "fn_function_keys": [],
+                    "identifiers": {
+                        "is_keyboard": false,
+                        "is_pointing_device": true,
+                        "product_id": 834,
+                        "vendor_id": 1452
                     },
                     "ignore": true,
                     "manipulate_caps_lock_led": false,

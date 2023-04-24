@@ -1,0 +1,34 @@
+editor /usr/local/bin/nvim
+allow_remote_control yes
+
+font_family SF Mono
+font_size 14.0
+tab_fade 1
+window_padding_width 10.0
+window_border_width 0
+cursor_blink_interval .5
+adjust_line_height  10
+enabled_layouts horizontal
+
+kitty_mod cmd+shift
+map cmd+1 focus_tab 1
+map cmd+2 focus_tab 2
+map cmd+equal change_font_size all +2.0
+map alt+a no_op
+# map cmd+enter no_op
+map ctrl+1 no_op
+map ctrl+2 no_op
+map ctrl+3 no_op
+
+# Neovim helpers
+map cmd+s send_text all \x1b :w \x0d
+
+map cmd+option+s send_text all \x1b :wall \x0d
+map cmd+t send_text all \x1b :Telescope find_files \x0d
+map cmd+shift+f send_text all \x1b :Telescope live_grep \x0d
+map cmd+g send_text all \x1b :G \x0d
+map cmd+shift+g send_text all \x1b :Git ci \x0d
+map cmd+w send_text all \x1b :Bclose \x0d
+
+# Theme
+include themes/nord.conf

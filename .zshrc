@@ -3,16 +3,15 @@ source ~/.config/zsh/improvements.zsh
 source ~/.config/zsh/path.zsh
 source ~/.config/zsh/prompt.zsh
 
-source ~/.config/zsh/fzf.zsh
 source ~/.config/zsh/gcloud.zsh
-source ~/.config/zsh/node.zsh
+# source ~/.config/zsh/node.zsh
 source ~/.config/zsh/ruby.zsh
 source ~/.config/zsh/vim.zsh
 source ~/.config/zsh/tmux.zsh
 
-source ~/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+# source ~/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-source ~/.credentials
+#source ~/.credentials
 
 # tabtab source for serverless package
 # uninstall by removing these lines or running `tabtab uninstall serverless`
@@ -24,3 +23,7 @@ source ~/.credentials
 # uninstall by removing these lines or running `tabtab uninstall slss`
 [[ -f /Users/rolando/code/AirLabsTeam/backend/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/rolando/code/AirLabsTeam/backend/node_modules/tabtab/.completions/slss.zsh
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
